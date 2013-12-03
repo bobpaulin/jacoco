@@ -49,7 +49,7 @@ public class FileOutput implements IAgentOutput {
 		openFile().close();
 	}
 
-	public void writeExecutionData(final boolean reset) throws IOException {
+	public synchronized void writeExecutionData(final boolean reset) throws IOException {
 		final OutputStream output = openFile();
 		try {
 			final ExecutionDataWriter writer = new ExecutionDataWriter(output);
